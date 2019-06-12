@@ -33,6 +33,8 @@ module.exports = {
             author, place, description, hashtags, fileName
         });
 
+        req.io.emit('post', post);
+
         res.json({ post });
     }
 };

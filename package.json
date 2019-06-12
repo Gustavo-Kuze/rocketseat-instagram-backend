@@ -6,10 +6,12 @@
   "author": "Gustavo Kuze <gustavo.silva@rcadigital.com.br>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jimp": "^0.6.4",
     "mongoose": "^5.5.14",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "socket.io": "^2.2.0"
   },
   "scripts": {
     "dev": "nodemon src/index.js"
