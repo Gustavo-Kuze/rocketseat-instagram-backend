@@ -5,7 +5,7 @@ const path = require('path');
 const cors = require('cors');
 
 const server = require('http').Server(app);
-const io = require('socket.io')(Server);
+const io = require('socket.io')(server);
 
 mongoose.connect('mongodb+srv://semana:semana@mern-cluster-5vfir.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true
