@@ -13,7 +13,7 @@ module.exports = {
         const { author, place, description, hashtags } = req.body;
         const { filename: image } = req.file;
 
-        const [name] = image.split('.');
+        const [name] = image.split('.')[0];
         const fileName = `${name}.jpg`
 
         let jimpImg = await jimp.read(req.file.path)
@@ -21,7 +21,7 @@ module.exports = {
             .quality(70)
             .write(
                 path.resolve(
-                    req.file.destination.replace(),
+                    req.file.destination,
                     'resized',
                     fileName
                 )
@@ -36,5 +36,10 @@ module.exports = {
         req.io.emit('post', post);
 
         res.json({ post });
+    },
+
+    async delete(req, res){
+        const post = await Post.findById(req.params.id);
+        post.remove();
     }
 };
